@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { connectionString } = require("./config");
 
-exports.connect = () => {
+exports.connectMongoDB = () => {
   mongoose
     .connect(connectionString)
     .then(() => {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <!-- <header>
+        <%- include('../partials/header'); %>
+      </header> -->
+      <div>
+        <h1>LOGIN</h1>
+        <% if (locals.error) { %>
+         <p><%= error %></p>
+        <% } %>
+    </div>
+      <main>
+        <!-- <div class="jumbotron">
+          <h1>This is great</h1>
+          <p>Welcome to templating using EJS</p>
+        </div> -->
+        <div>
+        <form method="post" action="/user/login">
+            <label><b>Email</b></label>
+            <input type="text" required name="email" placeholder="johndoe@something.com"/>
+            <label><b>Password</b></label>
+            <input type="text" required name="password" placeholder="*************"/>
+            <button type="submit">Login</button>
+        </form>
+        </div>
+        <div>
+          <a href="/signup">
+            <button>signup?</button>
+         </a>
+        </div>
+      </main>
+    <!-- <footer>
+        <%- include('../partials/footer'); %>
+      </footer> -->
+</body>
+</html>

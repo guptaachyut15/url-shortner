@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs') %>
+</head>
+<body>
+    <!-- <header>
+        <%- include('../partials/header'); %>
+      </header> -->
+      <main>
+        <!-- <div class="jumbotron">
+          <h1>This is great</h1>
+          <p>Welcome to templating using EJS</p>
+        </div> -->
+        <div>
+            <a href="/">
+              <button>Home</button>
+           </a>
+          </div>
+        <div>
+            <% if (locals.url) { %>
+             <p>Your short url is http://localhost:8080/url/<%= url %></p>
+            <% } %>
+        </div>
+        <div>
+        <form method="post" action="/url">
+            <label><b>Enter your url</b></label>
+            <input type="text" name="url" placeholder="https://www.example.com"/>
+            <button type="submit">Generate</button>
+        </form>
+        </div>
+        <div style="margin-top: 30px;"></div>
+        <% if (locals.urls && locals.urls.length!=0) { %>
+                <table>
+                    <thead>
+                        <th>Sno.</th>
+                        <th>ShortId</th>
+                        <th>RedirectUrl</th>
+                        <th>NumberOfClicks</th>
+                    </thead>
+                    <tbody>
+                        <% urls.forEach((url,index) => { %>
+                            <tr>
+                            <td><%= index+1 %></td>
+                            <td><%= url.shortUrl %></td>
+                            <td><%= url.redirectURL %></td>
+                            <td><%= url.visitHistory.length %></td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>         
+        <% } %>
+        </div>
+      </main>
+    <!-- <footer>
+        <%- include('../partials/footer'); %>
+      </footer> -->
+</body>
+</html>

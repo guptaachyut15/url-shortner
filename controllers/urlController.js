@@ -7,8 +7,13 @@ exports.handleCreateURL = async (req, res) => {
     return res.status(400).json({ error: "Url must be passed" });
   }
   let shortId = shortid.generate();
-  URL.create({ shortUrl: shortId, redirectURL: body.url, visitHistory: [] });
-  return res.status(201).json({ status: "success", shortUrl: shortId });
+  URL.create({
+    shortUrl: shortId,
+    redirectURL: body.url,
+    visitHistory: [],
+    createdBy: req.user._id,
+  });
+  return res.render("pages/index", { url: shortId });
 };
 
 exports.handleGetURL = async (req, res) => {
