@@ -1,4 +1,5 @@
 const { getUser } = require("../utils/auth");
+
 exports.authenticateUser = async (req, res, next) => {
   let sessionId = req.cookies?.uid;
   if (!sessionId) {
