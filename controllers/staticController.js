@@ -5,7 +5,6 @@ exports.handleGetHomePage = async (req, res) => {
     console.log("NO req.user");
     return res.redirect("/login");
   }
-  console.log("******************");
   allUrls = await URL.find({ createdBy: req.user._id });
   console.log(allUrls);
   res.render("pages/index", { urls: allUrls });
